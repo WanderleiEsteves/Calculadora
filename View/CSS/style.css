@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body
+{
+    height: 100vh;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+}
+
+#Calculadora
+{
+    width: min(80%,300px);
+    height: 500px;
+    background-color: brown;
+    margin: 10px auto;
+}
+
+#visor{
+    background-color: aqua;
+    width: 80%;
+    height: 30%;
+    margin: 20px auto 0 auto;
+}
