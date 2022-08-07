@@ -2,6 +2,8 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    flex-wrap: wrap;
+    font-size: 16px;
 }
 
 body
@@ -17,15 +19,55 @@ body
 
 #Calculadora
 {
-    width: min(80%,300px);
+    width: min(80%,500px);
     height: 500px;
-    background-color: brown;
+    border: solid 1px black;
     margin: 10px auto;
+    border-radius: 10px;
 }
 
 #visor{
-    background-color: aqua;
-    width: 80%;
+    border: solid 1px black;
+    width: 90%;
     height: 30%;
     margin: 20px auto 0 auto;
+    border-radius: 10px;
 }
+
+#button
+{
+    display: grid;
+    grid-template-areas: 
+        "Raiz Exponente Divisao Multiplicacao"
+        "7 8 9 Mais"
+        "4 5 6 Menos"
+        "1 2 3 Igual"
+        "Ponto 0 Clean Igual";
+    margin: 15px auto 0px auto;
+    height: 60%;
+    width: 90%;
+}
+
+button
+{
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+}
+
+#Igual
+{
+    height: 180%;
+    margin-top: 4px;
+}
+
