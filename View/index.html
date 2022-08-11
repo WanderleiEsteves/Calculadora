@@ -9,31 +9,35 @@
         <title>calculadora</title>
     </head>
     <body>
+        <div id="name">
+            Wanderlei Esteves
+        </div>
         <div id="Calculadora">
-            <p id="visor">
-
-            </p>
+            <div id="visor">
+                <p id="equacao"></p>
+            </div>
             <div id="button">
-                <button id="Raiz">√</button>
-                <button id="Exponente">^</button>
-                <button id="Divisao">/</button>
-                <button id="Multiplicacao">*</button>
-                <button id="7">7</button>
-                <button id="8">8</button>
-                <button id="9">9</button>
-                <button id="Mais">+</button>
-                <button id="4">4</button>
-                <button id="5">5</button>
-                <button id="6">6</button>
-                <button id="Menos">-</button>
-                <button id="1">1</button>
-                <button id="2">2</button>
-                <button id="3">3</button>
-                <button id="Igual">=</button>
-                <button id="Ponto">.</button>
-                <button id="0">0</button>
-                <button onclick='document.getElementById("visor").innerHTML = ""' id="Clean">C</button>
+                <button onclick="CalcularRaiz()">√</button>
+                <button onclick="Adicionar('^')">^</button>
+                <button onclick="Adicionar('/')">/</button>
+                <button onclick="Adicionar('*')">*</button>
+                <button onclick="Adicionar('7')">7</button>
+                <button onclick="Adicionar('8')">8</button>
+                <button onclick="Adicionar('9')">9</button>
+                <button onclick="Adicionar('+')">+</button>
+                <button onclick="Adicionar('4')">4</button>
+                <button onclick="Adicionar('5')">5</button>
+                <button onclick="Adicionar('6')">6</button>
+                <button onclick="Adicionar('-')">-</button>
+                <button onclick="Adicionar('1')">1</button>
+                <button onclick="Adicionar('2')">2</button>
+                <button onclick="Adicionar('3')">3</button>
+                <button onclick="CalcularResultado()" id="Igual">=</button>
+                <button onclick="Adicionar('.')">.</button>
+                <button onclick="Adicionar('0')">0</button>
+                <button onclick="LimparEquacao()">C</button>
             </div>
         </div>
+        <script src="../script.js"></script>
     </body>
 </html>

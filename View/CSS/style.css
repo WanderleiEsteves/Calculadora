@@ -3,17 +3,10 @@
     padding: 0px;
     box-sizing: border-box;
     flex-wrap: wrap;
-    font-size: 16px;
 }
 
 body
 {
-    height: 100vh;
-}
-
-body
-{
-    display: flex;
     justify-content: center;
 }
 
@@ -27,11 +20,22 @@ body
 }
 
 #visor{
+    text-align: center;
     border: solid 1px black;
     width: 90%;
     height: 30%;
     margin: 20px auto 0 auto;
     border-radius: 10px;
+    
+}
+
+#equacao
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    font-size: 20pt;
 }
 
 #button
@@ -71,3 +75,10 @@ a
     margin-top: 4px;
 }
 
+#name
+{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 20pt;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
