@@ -1,4 +1,5 @@
-let equacao = "";
+let equacao = "0"; 
+ObterID();
 
 function ObterID()
 {
@@ -7,32 +8,83 @@ function ObterID()
 
 function Adicionar(valor)
 {
-    equacao += valor;
-    ObterID();
+    let countPontos = equacao.indexOf(".");
+
+    if(equacao == "0")
+    {
+        if(!(isNaN(valor)))
+        {
+            equacao = valor;
+            ObterID();
+
+        }else
+        {
+            equacao += valor;
+            ObterID(); 
+        }
+
+    }else
+    {
+        if((isNaN(valor)))
+        {
+            if(valor == ".")
+            {
+                if(countPontos == -1) // verificar se já tem ponto na equação
+                {
+                    equacao += valor;
+                    ObterID();
+    
+                }else
+                {
+                    ObterID();
+                }
+
+            }else
+            {
+                if(isNaN(equacao.substr(-1)))
+                {
+                    equacao = equacao.slice(0,-1) + valor;
+                    ObterID();
+
+                }else
+                {
+                    equacao += valor;
+                    ObterID();
+                }
+            }
+
+        }else
+        {
+            equacao += valor;
+            ObterID(); 
+        }
+    }
 }
 
 function LimparEquacao()
 {
-    equacao = "";
+    equacao = "0";
     ObterID();
 }
 
 function CalcularResultado()
 {
-    if(equacao === "")
+    let CountExponecial = equacao.indexOf("^");
+
+    if(CountExponecial != -1)
     {
-        return "";
+        equacao.replace("^","**");
+        CountExponecial = 0;
     }
-    equacao = eval(equacao.replace("^","**"));
+
+    equacao = eval(equacao);
+    equacao = equacao.toString();
     ObterID();
 }
 
 function CalcularRaiz()
 {
-    if(equacao === "")
-    {
-        return "";
-    }
     equacao = Math.sqrt(eval(equacao));
+    equacao = equacao.toString();
     ObterID();
 }
