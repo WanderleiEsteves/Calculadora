@@ -77,6 +77,12 @@ function CalcularResultado()
         CountExponecial = 0;
     }
 
+    if(isNaN(equacao.substr(-1)))
+    {
+        equacao = equacao.slice(0,-1);
+
+    }    
+
     equacao = eval(equacao);
     equacao = equacao.toString();
     ObterID();
@@ -84,6 +90,11 @@ function CalcularResultado()
 
 function CalcularRaiz()
 {
+    if(isNaN(equacao.substr(-1)))
+    {
+        equacao = equacao.slice(0,-1);
+    }
+
     equacao = Math.sqrt(eval(equacao));
     equacao = equacao.toString();
     ObterID();

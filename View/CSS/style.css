@@ -2,6 +2,8 @@
     margin: 0px;
     padding: 0px;
     flex-wrap: wrap;
+    font-size: 20pt;
+    color: #615141;
 }
 
 body
@@ -16,10 +18,12 @@ body
     border: solid 1px black;
     margin: 10px auto;
     border-radius: 10px;
+    background-color: #FBC48C;
 }
 
 #visor{
     text-align: center;
+    background-color: white;
     border: solid 1px black;
     width: 90%;
     height: 30%;
