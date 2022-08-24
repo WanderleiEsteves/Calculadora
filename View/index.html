@@ -17,6 +17,10 @@
                 <p id="equacao"></p>
             </div>
             <div id="button">
+                <button onclick='AdicionarParenAberto()'>(</button>
+                <button onclick="AdicionarParenFechado()">)</button>
+                <button onclick="">CE</button>
+                <button onclick="RetirarUltimoElemento()"><</button>
                 <button onclick="CalcularRaiz()">√</button>
                 <button onclick="Adicionar('^')">^</button>
                 <button onclick="Adicionar('/')">/</button>
@@ -32,7 +36,7 @@
                 <button onclick="Adicionar('1')">1</button>
                 <button onclick="Adicionar('2')">2</button>
                 <button onclick="Adicionar('3')">3</button>
-                <button onclick="CalcularResultado()" id="Igual">=</button>
+                <button id="Igual" onclick="CalcularResultado()">=</button>
                 <button onclick="Adicionar('.')">.</button>
                 <button onclick="Adicionar('0')">0</button>
                 <button onclick="LimparEquacao()">C</button>

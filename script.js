@@ -1,64 +1,12 @@
-let equacao = "0"; 
+let equacao = "0";
+//adicionar algo após o cadastro 
+//Num pós (
+//Operador pós num != 0
 ObterID();
 
 function ObterID()
 {
     document.getElementById('equacao').innerHTML = equacao;
-}
-
-function Adicionar(valor)
-{
-    let countPontos = equacao.indexOf(".");
-
-    if(equacao == "0")
-    {
-        if(!(isNaN(valor)))
-        {
-            equacao = valor;
-            ObterID();
-
-        }else
-        {
-            equacao += valor;
-            ObterID(); 
-        }
-
-    }else
-    {
-        if((isNaN(valor)))
-        {
-            if(valor == ".")
-            {
-                if(countPontos == -1) // verificar se já tem ponto na equação
-                {
-                    equacao += valor;
-                    ObterID();
-    
-                }else
-                {
-                    ObterID();
-                }
-
-            }else
-            {
-                if(isNaN(equacao.substr(-1)))
-                {
-                    equacao = equacao.slice(0,-1) + valor;
-                    ObterID();
-
-                }else
-                {
-                    equacao += valor;
-                    ObterID();
-                }
-            }
-
-        }else
-        {
-            equacao += valor;
-            ObterID(); 
-        }
-    }
 }
 
 function LimparEquacao()
@@ -67,35 +15,116 @@ function LimparEquacao()
     ObterID();
 }
 
-function CalcularResultado()
-{
-    let CountExponecial = equacao.indexOf("^");
-
-    if(CountExponecial != -1)
-    {
-        equacao.replace("^","**");
-        CountExponecial = 0;
-    }
-
-    if(isNaN(equacao.substr(-1)))
-    {
-        equacao = equacao.slice(0,-1);
-
-    }    
-
-    equacao = eval(equacao);
-    equacao = equacao.toString();
-    ObterID();
-}
-
 function CalcularRaiz()
 {
-    if(isNaN(equacao.substr(-1)))
+
+}
+
+function Adicionar(valor)
+{
+    if(equacao == "0")
+    {
+        if(!(isNaN(valor)))
+        {
+            equacao = valor;
+
+        }else if(valor == ".")
+        {
+            equacao += valor;
+        }else 
+        {
+            equacao += " " + valor;
+        }
+    }else
+    {
+        if(!(isNaN(valor)))
+        {
+            if(equacao.substr(-1) == ")")
+            {
+                equacao += " * " + valor;
+
+            }else if(isNaN(equacao.substr(-1)) && equacao.substr(-1) != "(" && equacao.substr(-1) != ".")
+            {
+                equacao += " " + valor;
+
+            }else
+            {
+                equacao += valor
+            }
+
+        }else if(valor == ".")
+        {
+            if(isNaN(equacao.substr(-1))) 
+            {
+                if(isNaN(equacao.substr(-2)) && equacao.substr(-2) != ".")
+                {
+                    equacao += "0.";
+                }
+            }else
+            {
+                equacao += "."
+            }
+        }else
+        {
+
+        }
+
+    }
+
+    ObterID()
+}
+
+function AdicionarParenAberto()
+{
+    if(equacao == "0")
+    {
+        equacao = "(";
+
+    }else if (equacao.substr(-1) == ")" || !isNaN(equacao.substr(-1)))
+    {
+        equacao += " * (";
+    }else
+    {
+        equacao += "(";
+    } 
+        ObterID();
+}
+
+function AdicionarParenFechado()
+{ 
+    const CountParenAberto = (equacao.match(/\(/g) || []).length;
+    const CountParenFechado = (equacao.match(/\)/g) || []).length;
+
+    if(CountParenFechado < CountParenAberto)
+    {
+        if(equacao.substr(-1) == "(")
+        {
+            equacao += "0)";
+        }else
+        {
+            equacao += ")";
+        }
+        ObterID();
+    }
+}
+
+function RetirarUltimoElemento() // (50 < 0
+{
+    if(isNaN(equacao.substr(-1)) && equacao.substr(-1) != ".")
+    {       
+        if(equacao.substr(-1) != "(" && equacao.substr(-1) != ")")
+        {
+            equacao = equacao.slice(0,-2);
+        }
+    
+    }else
     {
         equacao = equacao.slice(0,-1);
     }
 
-    equacao = Math.sqrt(eval(equacao));
-    equacao = equacao.toString();
+    if(equacao == "") 
+    {
+        equacao = "0";
+    }
     ObterID();
 }

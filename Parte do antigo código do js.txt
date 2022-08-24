@@ -1,0 +1,81 @@
+if(equacao == "0")
+    {
+        if(!(isNaN(valor)))
+        {
+            equacao = valor;
+            ObterID();
+
+        }else
+        {
+            equacao += valor;
+            ObterID(); 
+        }
+
+    }else
+    {
+        if((isNaN(valor)))
+        {
+
+            if(isNaN(equacao.substr(-1)))
+            {
+                equacao = equacao.slice(0,-1) + valor;
+                ObterID();
+
+            }else
+            {
+                equacao += valor;
+                ObterID();
+            }
+            
+        }else
+        {
+            equacao += valor;
+            ObterID(); 
+        }
+    }
+}
+
+function LimparEquacao()
+{
+    equacao = "0";
+    ObterID();
+}
+
+function CalcularResultado()
+{
+    equacao = equacao.replace("^","**");
+    console.log(equacao)
+
+    if(isNaN(equacao.substr(-1)))
+    {
+        equacao = equacao.slice(0,-1);
+
+    }    
+
+    equacao = eval(equacao);
+    equacao = equacao.toString();
+    ObterID();
+}
+
+function CalcularRaiz()
+{
+
+    if(isNaN(equacao.substr(-1)))
+    {
+        equacao = equacao.slice(0,-1);
+        equacao = Math.sqrt(equacao);
+        equacao = equacao.toString();
+        ObterID();   
+
+    }else if(eval(equacao) < 0)
+    {
+        equacao = "N�o h� raiz de n�mero negativo";
+        ObterID();
+        equacao= "0";
+
+    }else 
+    {
+        equacao = Math.sqrt(equacao);
+        equacao = equacao.toString();
+        ObterID();   
+    }     
