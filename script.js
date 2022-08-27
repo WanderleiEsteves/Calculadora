@@ -170,7 +170,7 @@ function AdicionarParenFechado()
     }
 }
 
-function RetirarUltimoElemento() // ^(
+function RetirarUltimoElemento()
 {
     if(equacao.substr(-1) == " ")
     {
@@ -221,17 +221,26 @@ function CalcularResultado()
         }
     }
 
-    equacao = equacao.replace("^","**");
+    equacao = equacao.replace(/\^/gi,'**');
     equacao = String(eval(equacao));
 
     if(equacao == "NaN")
     {
         equacao = "Resultado indefinido";
+        ObterID();
+        equacao = "0";
+
+    }else if(equacao == "Infinity") 
+    {
+        equacao = "Impossível dividir por zero";
+        ObterID();
+        equacao = "0";
+
+    }else
+    {
+        ObterID();
     }
 
-    ObterID();
-
-        equacao = "0";
 }
 
 
